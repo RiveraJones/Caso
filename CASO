@@ -1,0 +1,51 @@
+#include<stdio.h>
+#define ntareas 20
+#define nrecursos 10
+
+struct proyecto{
+        float presupuesto;
+        char cliente[51];
+        char ruc[15];
+        long int duracion;
+        char fechaInicio[15];
+        char fechaFin[15];
+        char observaciones[105];
+};
+
+struct tarea{
+    char descripcion[105];
+    char recurso[nrecursos][21];
+    float costoTrabajo;
+    float costoRecursos;
+    float costoImpuestos;
+    float costoTotal;
+};
+struct proyecto p;
+struct tarea t[ntareas];
+
+void ingresoDP(){
+printf("Ingrese Nombre Cliente:");
+fgets(p.cliente,sizeof(p.cliente)-2,stdin);
+printf("\n Ingrese cedula o RUC:");
+fgets(p.ruc,sizeof(p.ruc)-2,stdin);
+printf("\n Ingrese fecha Inicio [AAAA-MM_DD]:");
+fgets(p.fechaInicio,sizeof(p.fechaInicio)-2,stdin);
+printf("\n Ingrese fecha Fin [AAAA-MM-DD]:");
+fgets(p.fechaFin,sizeof(p.fechaFin)-2,stdin);
+printf("\n Ingrese observaciones:");
+fgets(p.observaciones,sizeof(p.observaciones)-2,stdin);
+}
+
+void imprimirDP(){
+    printf("\n Cliente:%-50s",p.cliente);
+    printf("\n ruc o ci:%-50s",p.ruc);
+    printf("\n fecha incio:%-10s",p.fechaInicio);
+    printf("\n fecha fin:%-10s",p.fechaFin);
+    printf("\n Observaciones:%-100s",p.observaciones);
+}
+
+void main(){
+    ingresoDP();
+    imprimirDP();
+}
+
